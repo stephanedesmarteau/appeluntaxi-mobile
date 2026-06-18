@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">AppelUnTaxi Chauffeur</string>
+    <string name="title_activity_main">AppelUnTaxi Chauffeur</string>
+    <string name="package_name">com.appeluntaxi.chauffeur</string>
+    <string name="custom_url_scheme">com.appeluntaxi.chauffeur</string>
+</resources>

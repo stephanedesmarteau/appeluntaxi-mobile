@@ -1,0 +1,86 @@
+<!--
+  Ajouts à Info.plist — AppelUnTaxi CLIENT (iOS)
+  Ajoutez ces clés dans : ios/App/App/Info.plist
+  (après avoir exécuté : npx cap add ios)
+
+  Ces descriptions apparaissent dans les popups de permission iOS.
+  Apple EXIGE des descriptions claires en français.
+-->
+
+<!-- Géolocalisation -->
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>AppelUnTaxi utilise votre position pour remplir automatiquement votre adresse de départ et vous trouver le taxi le plus proche.</string>
+
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>AppelUnTaxi utilise votre position pour suivre votre course en temps réel.</string>
+
+<!-- Caméra -->
+<key>NSCameraUsageDescription</key>
+<string>AppelUnTaxi peut accéder à votre caméra pour prendre une photo de profil.</string>
+
+<!-- Notifications -->
+<key>UIBackgroundModes</key>
+<array>
+    <string>remote-notification</string>
+    <string>fetch</string>
+</array>
+
+<!-- Domaines autorisés (App Transport Security) -->
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <false/>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>appeluntaxi.com</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSExceptionAllowsInsecureHTTPLoads</key>
+            <false/>
+            <key>NSExceptionRequiresForwardSecrecy</key>
+            <true/>
+        </dict>
+        <key>famous-marmot-150.convex.cloud</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSExceptionAllowsInsecureHTTPLoads</key>
+            <false/>
+        </dict>
+    </dict>
+</dict>
+
+<!-- Deep links -->
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLName</key>
+        <string>com.appeluntaxi.client</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>appeluntaxi</string>
+        </array>
+    </dict>
+</array>
+
+<!-- Associated Domains (Universal Links) -->
+<key>com.apple.developer.associated-domains</key>
+<array>
+    <string>applinks:www.appeluntaxi.com</string>
+</array>
+
+<!-- Orientation écran -->
+<key>UISupportedInterfaceOrientations</key>
+<array>
+    <string>UIInterfaceOrientationPortrait</string>
+    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+</array>
+
+<!-- Nom affiché sous l'icône -->
+<key>CFBundleDisplayName</key>
+<string>AppelUnTaxi</string>
+
+<!-- Requis pour Google Maps -->
+<key>NSLocationUsageDescription</key>
+<string>AppelUnTaxi utilise votre position pour la réservation de taxi.</string>

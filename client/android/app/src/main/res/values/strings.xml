@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">AppelUnTaxi</string>
+    <string name="title_activity_main">AppelUnTaxi</string>
+    <string name="package_name">com.appeluntaxi.client</string>
+    <string name="custom_url_scheme">com.appeluntaxi.client</string>
+</resources>

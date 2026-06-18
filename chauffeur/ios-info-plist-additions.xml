@@ -1,0 +1,84 @@
+<!--
+  Ajouts à Info.plist — AppelUnTaxi CHAUFFEUR (iOS)
+  Ajoutez ces clés dans : ios/App/App/Info.plist
+  (après avoir exécuté : npx cap add ios)
+-->
+
+<!-- Géolocalisation en service (OBLIGATOIRE pour recevoir des courses) -->
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>AppelUnTaxi Chauffeur utilise votre position GPS pour vous envoyer des demandes de course à proximité.</string>
+
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>AppelUnTaxi Chauffeur doit accéder à votre position en arrière-plan pour vous envoyer des courses même quand l'application n'est pas à l'écran.</string>
+
+<key>NSLocationAlwaysUsageDescription</key>
+<string>AppelUnTaxi Chauffeur utilise votre position en continu pour le système de répartition automatique.</string>
+
+<!-- GPS en arrière-plan (CRITIQUE pour le chauffeur) -->
+<key>UIBackgroundModes</key>
+<array>
+    <string>location</string>
+    <string>remote-notification</string>
+    <string>fetch</string>
+    <string>processing</string>
+    <string>audio</string>
+</array>
+
+<!-- Microphone (son d'alarme, répondeur vocal) -->
+<key>NSMicrophoneUsageDescription</key>
+<string>AppelUnTaxi Chauffeur peut utiliser le microphone pour le système de répondeur vocal automatisé.</string>
+
+<!-- Caméra -->
+<key>NSCameraUsageDescription</key>
+<string>AppelUnTaxi Chauffeur peut accéder à votre caméra pour la vérification de documents.</string>
+
+<!-- Domaines autorisés -->
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSAllowsArbitraryLoads</key>
+    <false/>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>appeluntaxi.com</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSExceptionAllowsInsecureHTTPLoads</key>
+            <false/>
+        </dict>
+        <key>famous-marmot-150.convex.cloud</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSExceptionAllowsInsecureHTTPLoads</key>
+            <false/>
+        </dict>
+    </dict>
+</dict>
+
+<!-- Deep links -->
+<key>CFBundleURLTypes</key>
+<array>
+    <dict>
+        <key>CFBundleURLName</key>
+        <string>com.appeluntaxi.chauffeur</string>
+        <key>CFBundleURLSchemes</key>
+        <array>
+            <string>appeluntaxi-chauffeur</string>
+        </array>
+    </dict>
+</array>
+
+<!-- Orientation portrait seulement -->
+<key>UISupportedInterfaceOrientations</key>
+<array>
+    <string>UIInterfaceOrientationPortrait</string>
+</array>
+
+<!-- Empêcher la mise en veille de l'écran -->
+<key>UIIdleTimerDisabled</key>
+<true/>
+
+<!-- Nom affiché -->
+<key>CFBundleDisplayName</key>
+<string>Chauffeur</string>
