@@ -54,7 +54,7 @@ jobs:
 
       - name: Installer les dépendances npm (chauffeur)
         working-directory: chauffeur
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Synchroniser Capacitor avec Android
         working-directory: chauffeur
@@ -140,7 +140,7 @@ jobs:
 
       - name: Installer les dépendances npm (client)
         working-directory: client
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Synchroniser Capacitor avec Android
         working-directory: client
