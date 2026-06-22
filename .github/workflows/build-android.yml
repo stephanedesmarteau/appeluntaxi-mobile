@@ -89,6 +89,7 @@ jobs:
           KEY_ALIAS: ${{ secrets.CHAUFFEUR_KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.CHAUFFEUR_KEY_PASSWORD }}
         run: |
+          chmod +x gradlew
           ./gradlew bundleRelease \
             -Pandroid.injected.signing.store.file=app/release.keystore \
             -Pandroid.injected.signing.store.password="$KEYSTORE_PASSWORD" \
@@ -175,6 +176,7 @@ jobs:
           KEY_ALIAS: ${{ secrets.CLIENT_KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.CLIENT_KEY_PASSWORD }}
         run: |
+          chmod +x gradlew
           ./gradlew bundleRelease \
             -Pandroid.injected.signing.store.file=app/release.keystore \
             -Pandroid.injected.signing.store.password="$KEYSTORE_PASSWORD" \
