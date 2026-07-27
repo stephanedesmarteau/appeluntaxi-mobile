@@ -1,31 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  AndroidManifest.xml — AppelUnTaxi CLIENT
-  Copiez ce contenu dans : android/app/src/main/AndroidManifest.xml
-  (après avoir exécuté : npx cap add android)
--->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- ═══ PERMISSIONS ═══ -->
-
-    <!-- Accès Internet (obligatoire) -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-    <!-- Géolocalisation (adresse de départ automatique) -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-
-    <!-- Notifications push -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-
-    <!-- Vibration (confirmation de réservation) -->
     <uses-permission android:name="android.permission.VIBRATE" />
-
-    <!-- Appareil photo (photo de profil optionnelle) -->
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -46,20 +30,20 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
             android:windowSoftInputMode="adjustResize">
 
-            <intent-filter android:autoVerify="true">
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-            <!-- Deep links : appeluntaxi://client -->
-            <intent-filter android:autoVerify="true">
+            <!-- Deep links : appeluntaxi://client (sans autoVerify) -->
+            <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data android:scheme="appeluntaxi" android:host="client" />
             </intent-filter>
 
-            <!-- Lien vers le site web -->
+            <!-- Lien HTTPS vers le site web (autoVerify uniquement ici) -->
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -68,7 +52,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Service Firebase pour les notifications push -->
         <service
             android:name="com.google.firebase.messaging.FirebaseMessagingService"
             android:exported="false">
@@ -77,7 +60,6 @@
             </intent-filter>
         </service>
 
-        <!-- Fournisseur de fichiers (partage de documents) -->
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.fileprovider"
@@ -90,3 +72,4 @@
 
     </application>
 </manifest>
+
